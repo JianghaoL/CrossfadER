@@ -1,0 +1,74 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="400" d:DesignHeight="350"
+        x:Class="CrossfadER.MainWindow"
+        Title="CrossfadER" HorizontalAlignment="Center"
+        Width="400"
+        Height="350"
+        MinWidth="400"
+        MinHeight="350">
+    
+    <DockPanel>
+        <StackPanel Margin="10" Spacing="10">
+            <TextBlock Text="CrossfadER Audio Tool" HorizontalAlignment="Center" FontSize="20" FontWeight="DemiBold" ></TextBlock>
+            
+            <StackPanel Orientation="Horizontal" Spacing="40" Margin="15" HorizontalAlignment="Center">
+                <Button x:Name="FileSelectionButton" Content="Browse for file"></Button>
+                <TextBlock x:Name="SelectedFileTextDisplay" Text="No File Selected" Foreground="DimGray" VerticalAlignment="Center"></TextBlock>
+            </StackPanel>
+            
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Spacing="50">
+                <StackPanel Orientation="Vertical" Spacing="10">
+                    <TextBlock Text="Crossfade Time"></TextBlock>
+                    <ComboBox x:Name="CrossfadeTime" SelectedIndex="1">
+                        <ComboBoxItem Content="0.5s"></ComboBoxItem>
+                        <ComboBoxItem Content="1s"></ComboBoxItem>
+                        <ComboBoxItem Content="1.5s"></ComboBoxItem>
+                        <ComboBoxItem Content="2s"></ComboBoxItem>
+                    </ComboBox>
+                </StackPanel>
+                
+                <StackPanel Orientation="Vertical" Spacing="10">
+                    <TextBlock Text="Crossfade Mode"></TextBlock>
+                    <ComboBox x:Name="CrossfadeMode" SelectedIndex="0">
+                        <ComboBoxItem Content="Linear"></ComboBoxItem>
+                        <ComboBoxItem Content="Sine"></ComboBoxItem>
+                        <ComboBoxItem Content="Logarithmic"></ComboBoxItem>
+                    </ComboBox>
+                </StackPanel>
+                
+            </StackPanel>
+            
+            <StackPanel Margin="10" Spacing="5" HorizontalAlignment="Center" Orientation="Vertical">
+                <TextBox x:Name="OutputNameBox" Width="250" Watermark="Enter a name for the file"></TextBox>
+                <Button x:Name="ExportButton"
+                        Content="Export Audio File"
+                        HorizontalAlignment="Left"
+                        HorizontalContentAlignment="Center"
+                        Width="300"
+                        Height="35"
+                        Background="#0078D7"
+                        Foreground="White"
+                        FontWeight="Bold"
+                        Margin="0,10,0,0"></Button>
+                <TextBlock x:Name="Note" Text = "" FontSize="10" FontWeight="SemiBold" Foreground="Red" HorizontalAlignment="Center"></TextBlock>
+                
+                <StackPanel Orientation="Horizontal" Spacing="10">
+                    <ProgressBar x:Name="ProgressBar"
+                                 Width="250"
+                                 Height="10"
+                                 Minimum="0"
+                                 Maximum="100"
+                                 Value="0"
+                                 IsVisible="False"></ProgressBar>
+                    <TextBlock x:Name="StatusDisplayText" FontSize="10" Foreground="DimGray" VerticalAlignment="Center" Text=""></TextBlock>
+                </StackPanel>
+                
+            </StackPanel>
+        
+        </StackPanel>   
+    </DockPanel>
+    
+</Window>
